@@ -55,3 +55,14 @@ Here, `%2B15552223333` is the URL-encoded form of `+15552223333`. So `PhoneNumbe
 Similarly, `ExpectedFrom=%2B15558889999` encodes the phone number `+1 555 888 9999`. This should be the phone number of your intercom itself. Why do we care? This lets us prevent people using our Twilio number for unrelated calls — the server won't forward along the call unless it came from this number.
 
 Both of these values could be included in the application config for the intercom server itself, I suppose. Right now, we let Twilio supply them.
+
+
+# Granting temporary access to all callers
+
+If you're having friends over, it can be a hassle to receive a phone call each time somebody arrives. That's why _grant periods_ were invented. After setting the grant code and length in your application settings, just navigate to...
+
+```
+http://intercom.com/grant?code=YOUR-SUPER-SECRET-GRANT-CODE
+```
+
+...and you'll start a grant period of the specified length. (Hey, we're not trying to win any awards here.)
