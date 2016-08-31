@@ -54,7 +54,7 @@ Here, `%2B15552223333` is the URL-encoded form of `+15552223333`. So `PhoneNumbe
 
 Similarly, `ExpectedFrom=%2B15558889999` encodes the phone number `+1 555 888 9999`. This should be the phone number of your intercom itself. Why do we care? This lets us prevent people using our Twilio number for unrelated calls — the server won't forward along the call unless it came from this number.
 
-Both of these values could be included in the application config for the intercom server itself, I suppose. Right now, we let Twilio supply them.
+**Why do it this way?** Letting Twilio supply these values keeps clever people from learning your personal phone number. Twilio uses the `From` parameter to tell the intercom server who's dialing. Knowing this, a person could learn your intercom's phone number and visit `http://intercom.com?From=%2B15558889999`. The intercom server would think Twilio is reporting a call from your intercom, so it would emit a directive instructing Twilio to dial your personal phone number. Uh-oh, here come the prank calls!
 
 
 # Granting temporary access to all callers
