@@ -4,6 +4,8 @@ from setuptools import setup
 setup(
     name='intercom',
     version='0.0.1',
+    url='https://github.com/alexhanson/intercom',
+    license='ISC License',
     install_requires=[
         'click==6.6',
         'CherryPy==7.1.0',
