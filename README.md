@@ -34,10 +34,10 @@ This project might be useful to you if the following apply:
 This is going to depend on your web host. But basically you'll want to run...
 
 ```sh
-intercom $CONFIG_DIR/global-prod.ini $CONFIG_DIR/app.ini
+intercom $CONFIG_DIR/global-prod.ini $CONFIG_DIR/app.ini --daemon-pid-file $SOME_DIR/pid
 ```
 
-...as a daemon. Then, you'll likely need to configure some other server (or use your web host's config panel) to forward traffic to the port that the intercom server is listening on.
+...as a daemon. Then, you'll likely need to configure some other server (or use your web host's config panel) to forward traffic to the port that the intercom server is listening on. While the server is running, `$SOME_DIR/pid` will hold the server's process ID. You can say `kill $(<$SOME_DIR/pid)` to stop the server.
 
 There's no support for WSGI presently, but [CherryPy itself supports WSGI](http://docs.cherrypy.org/en/latest/deploy.html#wsgi-servers), so it shouldn't be too hard to modify `intercom/__main__.py` to fit in with a WSGI server.
 
