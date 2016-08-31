@@ -1,0 +1,12 @@
+# Derived Python files
+__pycache__/
+*.py[cod]
+
+# Packages
+build/
+dist/
+*.egg-info/
+
+# Test environment
+dev/
+.tox

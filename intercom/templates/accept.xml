@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+	<Dial timeout="{{ timeout_seconds }}">{{ phone_number }}</Dial>
+</Response>
