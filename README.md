@@ -65,4 +65,4 @@ If you're having friends over, it can be a hassle to receive a phone call each t
 http://intercom.com/grant?code=YOUR-SUPER-SECRET-GRANT-CODE
 ```
 
-...and you'll start a grant period of the specified length. (Hey, we're not trying to win any awards here.)
+...and you'll start a grant period of the specified length. During this period, the intercom server will respond to all calls on your behalf, granting access blindly.
