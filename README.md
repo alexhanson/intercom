@@ -50,7 +50,7 @@ Configure a phone number in Twilio such that voice calls hit a "webhook" on your
 http://intercom.com?PhoneNumberToDial=%2B15552223333&ExpectedFrom=%2B15558889999
 ```
 
-Here, `%2B15552223333` is the URL encoded form of `+15552223333`. So `PhoneNumberToDial=%2B15552223333` declares that I want Twilio to call me at `+ 1 555 222 3333` when someone dials my intercom.
+Here, `%2B15552223333` is the URL-encoded form of `+15552223333`. So `PhoneNumberToDial=%2B15552223333` declares that I want Twilio to call me at `+ 1 555 222 3333` when someone dials my intercom.
 
 Similarly, `ExpectedFrom=%2B15558889999` encodes the phone number `+1 555 888 9999`. This should be the phone number of your intercom itself. Why do we care? This lets us prevent people using our Twilio number for unrelated calls — the server won't forward along the call unless it came from this number.
 
