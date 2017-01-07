@@ -12,17 +12,22 @@ def _is_valid_grant_code(app_config, code):
     return code == app_config['grant']['code']
 
 
-def _get_grant_timedelta(app_config):
-    return timedelta(minutes=app_config['grant']['minutes'])
+def _get_grant_timedelta(app_config, minutes):
+    if minutes is None:
+        minutes = app_config['grant']['minutes']
+
+    minutes = min(minutes, app_config['grant']['max_minutes'])
+
+    return timedelta(minutes=minutes)
 
 
 class IntercomRoot(object):
     def __init__(self):
         self._last_grant = None
 
-    def _make_grant(self, app_config):
+    def _make_grant(self, app_config, minutes):
         self._last_grant = _get_now(app_config)
-        return self._last_grant + _get_grant_timedelta(app_config)
+        return self._last_grant + _get_grant_timedelta(app_config, minutes)
 
     def _has_active_grant(self, app_config):
         if not self._last_grant:
@@ -50,11 +55,14 @@ class IntercomRoot(object):
             return responses.reject()
 
     @cherrypy.expose
-    def grant(self, code=''):
+    def grant(self, code='', minutes=None):
         app_config = cherrypy.request.app.config
 
         if _is_valid_grant_code(app_config, code):
-            end_datetime = self._make_grant(app_config)
+            if minutes is not None:
+                minutes = int(minutes)
+
+            end_datetime = self._make_grant(app_config, minutes)
             end_datetime_formatted = end_datetime.strftime('%Y-%m-%d %H:%M')
             return 'Grant extended until {}'.format(end_datetime_formatted)
         else:
