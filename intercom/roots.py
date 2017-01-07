@@ -23,18 +23,17 @@ def _get_grant_timedelta(app_config, minutes):
 
 class IntercomRoot(object):
     def __init__(self):
-        self._last_grant = None
+        self._grant_expiration_datetime = None
 
     def _make_grant(self, app_config, minutes):
-        self._last_grant = _get_now(app_config)
-        return self._last_grant + _get_grant_timedelta(app_config, minutes)
+        self._grant_expiration_datetime = _get_now(app_config) + _get_grant_timedelta(app_config, minutes)
+        return self._grant_expiration_datetime
 
     def _has_active_grant(self, app_config):
-        if not self._last_grant:
+        if self._grant_expiration_datetime is None:
             return False
 
-        now = _get_now(app_config)
-        return (now - self._last_grant) < _get_grant_timedelta(app_config)
+        return self._grant_expiration_datetime > _get_now(app_config)
 
     # `PhoneNumberToDial` and `ExpectedFrom` should be provided as querystring
     # parameters. `From` will be provided by Twilio.
