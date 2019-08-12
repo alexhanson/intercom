@@ -26,7 +26,11 @@ class IntercomRoot(object):
         self._grant_expiration_datetime = None
 
     def _make_grant(self, app_config, minutes):
-        self._grant_expiration_datetime = _get_now(app_config) + _get_grant_timedelta(app_config, minutes)
+        self._grant_expiration_datetime = (
+            _get_now(app_config)
+            + _get_grant_timedelta(app_config, minutes)
+        )
+
         return self._grant_expiration_datetime
 
     def _has_active_grant(self, app_config):
