@@ -16,7 +16,7 @@ This project might be useful to you if the following apply:
 # Bootstrapping the server
 
 1. Clone this repository and `cd` into it.
-1. Install `tox` globally on your system: `pip install tox>=2.3`
+1. Install `tox` globally on your system: `pip install 'tox>=3.13'`
 1. Run `tox`
 1. Copy the config templates somewhere else: `cp -r configs $CONFIG_DIR`
 1. Edit the files in `$CONFIG_DIR` to meet your needs.

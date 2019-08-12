@@ -6,11 +6,12 @@ setup(
     version='0.0.1',
     url='https://github.com/alexhanson/intercom',
     license='ISC License',
+    python_requires='>=3.7',
     install_requires=[
-        'click==6.6',
-        'CherryPy==7.1.0',
-        'Jinja2==2.8',
-        'pytz==2016.6.1',
+        'click==7.0',
+        'CherryPy==18.1.2',
+        'Jinja2==2.10.1',
+        'pytz==2019.2',
     ],
     packages=[
         'intercom',

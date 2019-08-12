@@ -1,5 +1,1 @@
-click==6.6
-CherryPy==7.1.0
-Jinja2==2.8
-pep8==1.7.0
-pytz==2016.6.1
+-e .
