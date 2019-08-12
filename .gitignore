@@ -10,3 +10,6 @@ dist/
 # Test environment
 dev/
 .tox
+
+# macOS
+.DS_Store
