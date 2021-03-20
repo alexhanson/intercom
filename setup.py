@@ -10,8 +10,8 @@ setup(
     install_requires=[
         'click==7.1.2',
         'CherryPy==18.6.0',
-        'Jinja2==2.11.2',
-        'pytz==2020.1',
+        'Jinja2==2.11.3',
+        'pytz==2021.1',
     ],
     packages=[
         'intercom',
