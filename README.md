@@ -1,6 +1,3 @@
-**Hey!** This software was made to meet a particular need that I personally had, and it might not be terribly useful for anybody else.
-* * *
-
 intercom
 ==============
 A simple server that combines your phone-powered intercom with Twilio to do useful things. Sort of.
